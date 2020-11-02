@@ -20,11 +20,11 @@ public class ArmRotation : MonoBehaviour
 
         float armAngle = rotZ + rotationOffset;
 
-        if(armAngle < 90 && armAngle >-90 && !facingRight)
+        if (armAngle < 90 && armAngle > -90 && !facingRight)
         {
             FlipY();
         }
-        else if ((armAngle > 90 && facingRight) || (armAngle<-90 && facingRight))
+        else if ((armAngle > 90 && facingRight) || (armAngle < -90 && facingRight)) 
         {
             FlipY();
         }
