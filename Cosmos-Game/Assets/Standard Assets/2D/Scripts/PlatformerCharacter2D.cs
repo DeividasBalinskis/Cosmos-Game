@@ -6,6 +6,8 @@ namespace UnityStandardAssets._2D
 {
     public class PlatformerCharacter2D : MonoBehaviour
     {
+        public int rotationOffset = 90;
+
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
@@ -21,6 +23,8 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+        Transform playerGraphics;
+
         private void Awake()
         {
             // Setting up references.
@@ -28,6 +32,11 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            playerGraphics = transform.Find("Graphics");
+            if (playerGraphics == null)
+            {
+                Debug.LogError("There is no graphics as a child of player");
+            }
         }
 
 
@@ -47,6 +56,22 @@ namespace UnityStandardAssets._2D
 
             // Set the vertical animation
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+
+            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            difference.Normalize();
+
+            //MOUSE CHARACTER ROTATION. DELETE ROTATIONOFFSET IF DOESNT WORK!!!
+            float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            //transform.rotation = Quaternion.Euler(180f, 180f, rotZ + rotationOffset);
+            float armAngle = rotZ ;
+            if (armAngle < 90 && armAngle > -90 && !m_FacingRight)
+            {
+                Flip();
+            }
+            else if ((armAngle > 90 && m_FacingRight) || (armAngle < -90 && m_FacingRight))
+            {
+                Flip();
+            }
         }
 
 
@@ -78,7 +103,7 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
 
                 // If the input is moving the player right and the player is facing left...
-                if (move > 0 && !m_FacingRight)
+                /*if (move > 0 && !m_FacingRight)
                 {
                     // ... flip the player.
                     Flip();
@@ -88,7 +113,7 @@ namespace UnityStandardAssets._2D
                 {
                     // ... flip the player.
                     Flip();
-                }
+                }*/
             }
             // If the player should jump...
             if (m_Grounded && jump && m_Anim.GetBool("Ground"))
@@ -107,9 +132,9 @@ namespace UnityStandardAssets._2D
             m_FacingRight = !m_FacingRight;
 
             // Multiply the player's x local scale by -1.
-            Vector3 theScale = transform.localScale;
+            Vector3 theScale = playerGraphics.localScale;
             theScale.x *= -1;
-            transform.localScale = theScale;
+            playerGraphics.localScale = theScale;
         }
     }
 }

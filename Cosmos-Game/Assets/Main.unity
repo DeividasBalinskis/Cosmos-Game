@@ -385,6 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 843072333}
   - component: {fileID: 843072332}
+  - component: {fileID: 843072334}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -430,7 +431,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2008911231
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 2429855376248430252, guid: e77d35b131b5cbf499b6da549b585fb0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -457,6 +458,19 @@ Transform:
   m_Father: {fileID: 384403598}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843072334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843072331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745553b4d3ab29a4085b719fa7a114d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationOffset: 0
 --- !u!1001 &869330803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -642,7 +656,7 @@ GameObject:
   - component: {fileID: 992960540}
   - component: {fileID: 992960541}
   m_Layer: 0
-  m_Name: AstronautIdle
+  m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,8 +712,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2008911231
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -7292798746301496257, guid: e77d35b131b5cbf499b6da549b585fb0,
     type: 3}
