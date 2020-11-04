@@ -297,6 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413216634}
   - component: {fileID: 413216633}
+  - component: {fileID: 413216635}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -335,6 +336,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &413216635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413216632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ead11dcde2c9a34f8c88910c2dd8cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &472113461
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +423,7 @@ MonoBehaviour:
   lookAheadFactor: 1.5
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
+  yPosRestriction: -1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -932,6 +946,27 @@ MonoBehaviour:
   hasARightBuddy: 0
   hasALeftBuddy: 0
   reverseScale: 0
+--- !u!1 &1093843039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 87a2357765801c34292d6718d8b4d770,
+    type: 3}
+  m_PrefabInstance: {fileID: 869330803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1093843046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093843039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005bcec8f8184da4fba77912675999fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats:
+    Health: 100
+  fallBoundry: -20
 --- !u!1 &1275453477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1277,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   BulletTrailPrefab: {fileID: 7665437810417105504, guid: b243426c2c4acde4e9325492986be7aa,
+    type: 3}
+  MuzzleFlashPrefab: {fileID: 8083234016954986289, guid: ed276f0cbd8c2f24d8ec667d6989a403,
     type: 3}
   effectSpawnRate: 10
 --- !u!1 &1864252582
