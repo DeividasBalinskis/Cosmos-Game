@@ -27,6 +27,8 @@ public class EnemyAI : MonoBehaviour
 
     private int currentWaypoint = 0;
 
+    private bool searingForPlayer = false;
+
     void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -34,7 +36,11 @@ public class EnemyAI : MonoBehaviour
 
         if(target == null)
         {
-            //target search
+            if(!searingForPlayer)
+            {
+                searingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             return;
         }
 
@@ -43,25 +49,41 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(UpdatePath());
     }
 
+    IEnumerator SearchForPlayer()
+    {
+        GameObject sResult = GameObject.FindGameObjectWithTag("Player");
+        if(sResult == null)
+        {
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(SearchForPlayer());
+        }
+        else
+        {
+            searingForPlayer = false;
+            target = sResult.transform;
+            StartCoroutine(UpdatePath());
+            yield return false;
+        }
+    }
+
     IEnumerator UpdatePath()
     {
-        if(target == null)
+        if (target == null)
         {
-            //insert player search
+            if (!searingForPlayer)
+            {
+                searingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             yield return false;
         }
 
-        if(target != null)
+        if (target != null)
         {
             seeker.StartPath(transform.position, target.position, OnPathComplete);
         }
         
-
         yield return new WaitForSeconds(1 / updateRate);
-        if(GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
-        }
         StartCoroutine(UpdatePath());
     }
 
@@ -77,15 +99,19 @@ public class EnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (target == null)
+        if(target == null)
         {
-            //insert player search
+            if (!searingForPlayer)
+            {
+                searingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             return;
         }
 
         //always look at a player
 
-        if(path == null)
+        if (path == null)
         {
             return;
         }
