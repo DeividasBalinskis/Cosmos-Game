@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2008911231
-  m_SortingLayer: 1
+  m_SortingLayerID: 1159841397
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -3355605324767024174, guid: e77d35b131b5cbf499b6da549b585fb0,
     type: 3}
@@ -100,7 +100,13 @@ MonoBehaviour:
   Damage: 10
   WhatToHit:
     serializedVersion: 2
-    m_Bits: 563
+    m_Bits: 3072
+  BulletTrailPrefab: {fileID: 0}
+  MuzzleFlashPrefab: {fileID: 0}
+  hitPrefab: {fileID: 0}
+  effectSpawnRate: 10
+  camShakeAmt: 0.1
+  camShakeLength: 0.05
 --- !u!1 &5314480095466334113
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,6 +39,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3494240813
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Obsticle
+    uniqueID: 253417903
+    locked: 0
+  - name: Enemy
+    uniqueID: 1779696485
+    locked: 0
+  - name: Player
+    uniqueID: 1159841397
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2168065441
     locked: 0

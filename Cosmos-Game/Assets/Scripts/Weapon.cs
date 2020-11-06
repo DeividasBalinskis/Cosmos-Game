@@ -14,6 +14,11 @@ public class Weapon : MonoBehaviour
     float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
 
+    //handle camera shaking
+    public float camShakeAmt = 0.1f;
+    public float camShakeLength = 0.05f;
+    CameraShake camShake;
+
     float timeToFire = 0;
     Transform firePoint;
 
@@ -24,6 +29,13 @@ public class Weapon : MonoBehaviour
         {
             Debug.LogError("No Firepoint");
         }
+    }
+
+    void Start()
+    {
+        camShake = GameMaster.gm.GetComponent<CameraShake>();
+        if (camShake == null)
+            Debug.LogError("no cameraShake script found on gm object");
     }
 
     // Update is called once per frame
@@ -110,5 +122,9 @@ public class Weapon : MonoBehaviour
         float size = Random.Range(0.3f, 0.5f);
         clone.localScale = new Vector3(size, size, size);
         Destroy(clone.gameObject, 0.02f);
+
+
+        //shake the camera
+        camShake.Shake(camShakeAmt, camShakeLength);
     }
 }
