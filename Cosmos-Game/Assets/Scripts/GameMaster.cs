@@ -20,7 +20,17 @@ public class GameMaster : MonoBehaviour
     public float spawnDelay = 2;
     public Transform spawnPrefab;
 
-    public IEnumerator RespawnPlayer()
+    public CameraShake cameraShake;
+
+    void Start()
+    {
+        if(cameraShake == null)
+        {
+            Debug.LogError("no camera hkae reference ins game master");
+        }
+    }
+
+    public IEnumerator _RespawnPlayer()
     {
         GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(spawnDelay);
@@ -32,13 +42,20 @@ public class GameMaster : MonoBehaviour
 
     public static void KillPlayer (Player player)
     {
-        gm.StartCoroutine(gm.RespawnPlayer());
+        gm.StartCoroutine(gm._RespawnPlayer());
         Destroy(player.gameObject);
     }
 
     public static void KillEnemy(Enemy enemy)
     {
-        Destroy(enemy.gameObject);
+        gm._KillEnemy(enemy);
     }   
 
+    public void _KillEnemy(Enemy _enemy)
+    {
+        GameObject _clone = Instantiate(_enemy.deathParticles.gameObject, _enemy.transform.position, Quaternion.identity);
+        Destroy(_clone, 5f);
+        cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLenght);
+        Destroy(_enemy.gameObject);
+    }
 }
