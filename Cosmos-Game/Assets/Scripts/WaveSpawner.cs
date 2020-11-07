@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Concurrent;
+using System.ComponentModel;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public enum SpawnState { SPAWNING, WAITING, COUNTING};
+    public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
     [System.Serializable]
     public class Wave
@@ -19,15 +20,27 @@ public class WaveSpawner : MonoBehaviour
 
     public Wave[] waves;
     private int nextWave = 0;
+    public int NextWave
+    {
+        get { return nextWave + 1; }
+    }
 
     public Transform[] spawnPoints;
 
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 3f;
     private float waveCountDown;
+    public float WaveCountdown
+    {
+        get {return waveCountDown; }
+    }
 
     private float searchCountdown = 1f;
 
     private SpawnState state = SpawnState.COUNTING;
+    public SpawnState State
+    {
+        get { return state; }
+    }
 
     void Start()
     {
