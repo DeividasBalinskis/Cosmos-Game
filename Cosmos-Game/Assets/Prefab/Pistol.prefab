@@ -104,7 +104,7 @@ MonoBehaviour:
   BulletTrailPrefab: {fileID: 0}
   MuzzleFlashPrefab: {fileID: 0}
   hitPrefab: {fileID: 0}
-  effectSpawnRate: 10
+  effectSpawnRate: 5
   camShakeAmt: 0.1
   camShakeLength: 0.05
 --- !u!1 &5314480095466334113

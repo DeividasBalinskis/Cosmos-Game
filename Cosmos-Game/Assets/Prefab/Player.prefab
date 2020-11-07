@@ -374,7 +374,7 @@ MonoBehaviour:
     type: 3}
   hitPrefab: {fileID: 8218343413278058138, guid: aeb845161fa647b4e887f4422b171f8a,
     type: 3}
-  effectSpawnRate: 10
+  effectSpawnRate: 5
   camShakeAmt: 0.1
   camShakeLength: 0.05
 --- !u!1 &8801014089824723622
