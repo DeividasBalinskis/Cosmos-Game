@@ -6,6 +6,12 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster gm;
+    public static int RemainingLives
+    {
+        get { return _remainingLives; }
+    }
+
+    private static int _remainingLives = 3;
 
     void Awake()
     {
@@ -22,12 +28,21 @@ public class GameMaster : MonoBehaviour
 
     public CameraShake cameraShake;
 
+    [SerializeField]
+    private GameObject gameOverUI;
+
     void Start()
     {
         if(cameraShake == null)
         {
             Debug.LogError("no camera hkae reference ins game master");
         }
+    }
+
+    public void EndGame()
+    {
+        Debug.Log("game over");
+        gameOverUI.SetActive(true);
     }
 
     public IEnumerator _RespawnPlayer()
@@ -42,8 +57,16 @@ public class GameMaster : MonoBehaviour
 
     public static void KillPlayer (Player player)
     {
-        gm.StartCoroutine(gm._RespawnPlayer());
         Destroy(player.gameObject);
+        _remainingLives -= 1;
+        if(_remainingLives <= 0)
+        {
+            gm.EndGame();
+        }
+        else
+        {
+            gm.StartCoroutine(gm._RespawnPlayer());
+        }
     }
 
     public static void KillEnemy(Enemy enemy)
