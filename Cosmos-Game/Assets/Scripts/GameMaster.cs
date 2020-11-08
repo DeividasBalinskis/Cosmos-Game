@@ -6,12 +6,15 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster gm;
+
+    [SerializeField]
+    private int maxLives = 3;
+
+    private static int _remainingLives;
     public static int RemainingLives
     {
         get { return _remainingLives; }
     }
-
-    private static int _remainingLives = 3;
 
     void Awake()
     {
@@ -37,6 +40,7 @@ public class GameMaster : MonoBehaviour
         {
             Debug.LogError("no camera hkae reference ins game master");
         }
+        _remainingLives = maxLives;
     }
 
     public void EndGame()
