@@ -377,6 +377,7 @@ MonoBehaviour:
   effectSpawnRate: 10
   camShakeAmt: 0.1
   camShakeLength: 0.05
+  weaponShootSound: DefaultShot
 --- !u!1 &8801014089824723622
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +556,7 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 1079
+  landingSoundName: LandingFootsteps
 --- !u!114 &8801014090053447073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +610,8 @@ MonoBehaviour:
   stats:
     maxHealth: 100
   fallBoundry: -20
+  deathSoundName: DeathVoice
+  damageSoundName: Grunt
   statusIndicator: {fileID: 2035276539511271290}
 --- !u!1 &8801014090047395909
 GameObject:

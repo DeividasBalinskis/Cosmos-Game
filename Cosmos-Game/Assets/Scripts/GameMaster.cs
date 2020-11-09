@@ -28,7 +28,10 @@ public class GameMaster : MonoBehaviour
     public Transform spawnPoint;
     public float spawnDelay = 2;
     public Transform spawnPrefab;
-    public string spawnSoundName;
+    public string respawnCountdownSoundName = "RespawnCountdown";
+    public string spawnSoundName = "Spawn";
+
+    public string gameOverSoundName = "GameOver";
 
     public CameraShake cameraShake;
 
@@ -56,15 +59,18 @@ public class GameMaster : MonoBehaviour
 
     public void EndGame()
     {
+        audioManager.PlaySound(gameOverSoundName);
+
         Debug.Log("game over");
         gameOverUI.SetActive(true);
     }
 
     public IEnumerator _RespawnPlayer()
     {
-        audioManager.PlaySound(spawnSoundName);
+        audioManager.PlaySound(respawnCountdownSoundName);
         yield return new WaitForSeconds(spawnDelay);
 
+        audioManager.PlaySound(spawnSoundName);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) ;
         Destroy(clone.gameObject, 3f);
@@ -91,8 +97,15 @@ public class GameMaster : MonoBehaviour
 
     public void _KillEnemy(Enemy _enemy)
     {
+
+        //sound play
+        audioManager.PlaySound(_enemy.deathSoundName);
+
+        //add particles
         GameObject _clone = Instantiate(_enemy.deathParticles.gameObject, _enemy.transform.position, Quaternion.identity);
         Destroy(_clone, 5f);
+
+        //camera shake
         cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLenght);
         Destroy(_enemy.gameObject);
     }
