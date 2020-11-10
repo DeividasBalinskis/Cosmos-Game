@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets._2D;
@@ -6,27 +7,6 @@ using UnityStandardAssets._2D;
 [RequireComponent(typeof(Platformer2DUserControl))]
 public class Player : MonoBehaviour
 {
-    [System.Serializable]
-    public class PlayerStats
-    {
-        public int maxHealth = 100;
-
-        private int _curHealth;
-        public int curHealth
-        {
-            get { return _curHealth; }
-            set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
-        }
-
-        public void Init()
-        {
-            curHealth = maxHealth;
-        }
-
-    }
-
-    public PlayerStats stats = new PlayerStats();
-
     public int fallBoundry = -20;
 
     public string deathSoundName = "DeathVoice";
@@ -37,9 +17,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private StatusIndicator statusIndicator;
 
+    private PlayerStats stats;
+
     void Start()
     {
-        stats.Init();
+        stats = PlayerStats.Instance;
+
+        stats.curHealth = stats.maxHealth;
 
         if(statusIndicator == null)
         {
@@ -57,6 +41,14 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("no audio manage r in scene");
         }
+
+        InvokeRepeating("RegenHealth", 1 / stats.healthRegenRate, 1 / stats.healthRegenRate);
+    }
+
+    void RegenHealth()
+    {
+        stats.curHealth += 1;
+        statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
     }
 
     void Update()
