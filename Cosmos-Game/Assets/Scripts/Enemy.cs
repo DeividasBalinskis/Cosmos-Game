@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyAI))]
 public class Enemy : MonoBehaviour
 {
     [System.Serializable]
@@ -45,11 +46,22 @@ public class Enemy : MonoBehaviour
             statusIndicator.SetHealth(stats.curentHealth, stats.maxHealth);
         }
 
+        GameMaster.gm.onToggleUpgrdeMenu += OnUpgradeMenuToggle;
+
         if(deathParticles == null)
         {
             Debug.LogError("no death particles referenced on enemy");
         }
     }
+
+    void OnUpgradeMenuToggle(bool active)
+    {
+        //handle what happens, when upgrade menu is toggled
+        /*if (this != null)
+            return;*/
+        GetComponent<EnemyAI>().enabled = !active;
+    }
+        
 
     public void DamageEnemy(int damage)
     {
@@ -73,5 +85,10 @@ public class Enemy : MonoBehaviour
             _player.DamagePlayer(stats.damage);
             DamageEnemy(99999);
         }
+    }
+
+    void OnDestroy()
+    {
+        GameMaster.gm.onToggleUpgrdeMenu -= OnUpgradeMenuToggle;
     }
 }

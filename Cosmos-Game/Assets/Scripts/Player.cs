@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets._2D;
 
+[RequireComponent(typeof(Platformer2DUserControl))]
 public class Player : MonoBehaviour
 {
     [System.Serializable]
@@ -48,6 +50,8 @@ public class Player : MonoBehaviour
             statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
         }
 
+        GameMaster.gm.onToggleUpgrdeMenu += OnUpgradeMenuToggle;
+
         audioManager = AudioManager.instance;
         if(audioManager == null)
         {
@@ -64,7 +68,23 @@ public class Player : MonoBehaviour
 
         statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
     }
-    
+
+    void OnUpgradeMenuToggle(bool active)
+    {
+        //handle what happens, when upgrade menu is toggled
+        GetComponent<Platformer2DUserControl>().enabled = !active;
+        Weapon _weapon = GetComponentInChildren<Weapon>();
+        if(_weapon != null)
+        {
+            _weapon.enabled = !active;
+        }
+    }
+
+    void OnDestroy()
+    {
+        GameMaster.gm.onToggleUpgrdeMenu -= OnUpgradeMenuToggle;
+    }
+
     public void DamagePlayer (int damage)
     {
         stats.curHealth -= damage;
