@@ -15,6 +15,9 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField]
     float speedMultiplier = 1.3f;
 
+    [SerializeField]
+    private int upgradeCost = 50;
+
     private PlayerStats stats;
 
     void OnEnable()
@@ -32,11 +35,31 @@ public class UpgradeMenu : MonoBehaviour
     public void UpgradeHealth()
     {
         stats.maxHealth = (int)(stats.maxHealth * healthMultiplier);
+
+        if(GameMaster.Money < upgradeCost)
+        {
+            AudioManager.instance.PlaySound("NoMoney");
+            return;
+        }
+
+        GameMaster.Money -= upgradeCost;
+        AudioManager.instance.PlaySound("Money");
+
         UpdateValues();
     }
     public void UpgradeSpeed()
     {
+        if (GameMaster.Money < upgradeCost)
+        {
+            AudioManager.instance.PlaySound("NoMoney");
+            return;
+        }
+
         stats.movementSpeed = Mathf.Round(stats.movementSpeed * speedMultiplier);
+        AudioManager.instance.PlaySound("Money");
+
+        GameMaster.Money -= upgradeCost;
+
         UpdateValues();
     }
 }

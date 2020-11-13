@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4974172977123435232}
   - component: {fileID: 469237976}
   - component: {fileID: 469237977}
-  - component: {fileID: 343568406}
+  - component: {fileID: 1914952860}
   m_Layer: 0
   m_Name: _GM
   m_TagString: GM
@@ -82,7 +82,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  smoothing: 2
+  smoothing: 1
 --- !u!114 &4974172977123435232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,15 +96,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLives: 3
+  startingMoney: 100
   playerPrefab: {fileID: 8801014090047423587, guid: a92202ce64ee9454081beecc0ce796d5,
     type: 3}
   spawnPoint: {fileID: 931550352}
   spawnDelay: 3.5
   spawnPrefab: {fileID: 8502186054109774603, guid: 127db58b099b1f3498ecf9cb398cb29d,
     type: 3}
-  spawnSoundName: Respawn
+  respawnCountdownSoundName: RespawnCountdown
+  spawnSoundName: Spawn
+  gameOverSoundName: GameOver
   cameraShake: {fileID: 469237976}
   gameOverUI: {fileID: 0}
+  upgradeMenu: {fileID: 0}
+  waveSpawner: {fileID: 469237977}
 --- !u!114 &469237976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +153,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   timeBetweenWaves: 4
---- !u!114 &343568406
+--- !u!114 &1914952860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,13 +162,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4974172977123435235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a080723ef412a94a84d1ef6bab4271c, type: 3}
+  m_Script: {fileID: 11500000, guid: 66ee417e91dbd094ea0b784e57503ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: Respawn
-    clip: {fileID: 8300000, guid: 3fe4dce546b27824a8ab4ae31a50d217, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0
-    randomPitch: 0
+  maxHealth: 100
+  healthRegenRate: 2
+  movementSpeed: 10
