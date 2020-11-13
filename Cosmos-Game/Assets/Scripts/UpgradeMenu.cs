@@ -34,16 +34,18 @@ public class UpgradeMenu : MonoBehaviour
 
     public void UpgradeHealth()
     {
-        stats.maxHealth = (int)(stats.maxHealth * healthMultiplier);
-
         if(GameMaster.Money < upgradeCost)
         {
             AudioManager.instance.PlaySound("NoMoney");
             return;
         }
+        else
+        {
+            GameMaster.Money -= upgradeCost;
+            AudioManager.instance.PlaySound("Money");
+            stats.maxHealth = (int)(stats.maxHealth * healthMultiplier);
+        }
 
-        GameMaster.Money -= upgradeCost;
-        AudioManager.instance.PlaySound("Money");
 
         UpdateValues();
     }
@@ -54,11 +56,12 @@ public class UpgradeMenu : MonoBehaviour
             AudioManager.instance.PlaySound("NoMoney");
             return;
         }
-
-        stats.movementSpeed = Mathf.Round(stats.movementSpeed * speedMultiplier);
-        AudioManager.instance.PlaySound("Money");
-
-        GameMaster.Money -= upgradeCost;
+        else
+        {
+            stats.movementSpeed = Mathf.Round(stats.movementSpeed * speedMultiplier);
+            AudioManager.instance.PlaySound("Money");
+            GameMaster.Money -= upgradeCost;
+        }
 
         UpdateValues();
     }
