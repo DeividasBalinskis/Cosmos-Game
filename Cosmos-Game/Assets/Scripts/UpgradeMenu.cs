@@ -7,29 +7,33 @@ public class UpgradeMenu : MonoBehaviour
     private Text healthText;
 
     [SerializeField]
-    private Text speedText;
+    private Text damageText;
 
     [SerializeField]
     float healthMultiplier = 1.3f;
 
     [SerializeField]
-    float speedMultiplier = 1.3f;
+    float damageMultiplier = 1.3f;
 
     [SerializeField]
     private int upgradeCost = 50;
 
     private PlayerStats stats;
+    private Weapon weapon;
 
     void OnEnable()
     {
         stats = PlayerStats.Instance;
+        weapon = Weapon.Instance;
+
+
         UpdateValues();
     }
 
     void UpdateValues()
     {
         healthText.text = "Health: " + stats.maxHealth.ToString();
-        speedText.text = "Speed: " + stats.movementSpeed.ToString();
+        damageText.text = "Damage: " + weapon.Damage.ToString();
     }
 
     public void UpgradeHealth()
@@ -49,7 +53,8 @@ public class UpgradeMenu : MonoBehaviour
 
         UpdateValues();
     }
-    public void UpgradeSpeed()
+
+    public void UpgradeDamage()
     {
         if (GameMaster.Money < upgradeCost)
         {
@@ -58,10 +63,11 @@ public class UpgradeMenu : MonoBehaviour
         }
         else
         {
-            stats.movementSpeed = Mathf.Round(stats.movementSpeed * speedMultiplier);
-            AudioManager.instance.PlaySound("Money");
             GameMaster.Money -= upgradeCost;
+            AudioManager.instance.PlaySound("Money");
+            weapon.Damage = (int)(weapon.Damage * damageMultiplier); 
         }
+
 
         UpdateValues();
     }

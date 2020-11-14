@@ -126,6 +126,8 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f / _wave.rate);
         }
 
+        _wave.count += 10;
+
         state = SpawnState.WAITING;
 
         yield break;

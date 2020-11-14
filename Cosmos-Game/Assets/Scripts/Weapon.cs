@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public static Weapon Instance;
+
     public float fireRate = 0;
     public int Damage = 10;
     public LayerMask WhatToHit;
@@ -29,7 +31,12 @@ public class Weapon : MonoBehaviour
 
     void Awake()
     {
-        firePoint = transform.Find("FirePoint");
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
+        firePoint = FindObjectOfType<Weapon>().transform.Find("FirePoint"); //transform.Find("FirePoint");
         if(firePoint == null)
         {
             Debug.LogError("No Firepoint");

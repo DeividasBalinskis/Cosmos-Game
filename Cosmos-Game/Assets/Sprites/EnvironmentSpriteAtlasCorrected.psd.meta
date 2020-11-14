@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 662a27ff8f4341e4f91cba2c33e967cc
+guid: a08ebdd135dccb2439fafcdefb38e65e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8979192460385827557
-    second: BackgroundMountainsPurple
+      213: -6432077028093777331
+    second: EnvironmentSpriteAtlasCorrected_0
   - first:
-      213: 2867814667774947146
-    second: BackgroundMountainsOrange
+      213: 8581644839626626628
+    second: EnvironmentSpriteAtlasCorrected_1
   - first:
-      213: 115067189088952969
-    second: ForegroundDirt
+      213: 4634769114115215324
+    second: EnvironmentSpriteAtlasCorrected_2
   - first:
-      213: -2356764245647287336
-    second: Platform1
+      213: 1603874158844575191
+    second: EnvironmentSpriteAtlasCorrected_3
   - first:
-      213: 2265307819958540324
-    second: Platform2
+      213: -6658608791513705576
+    second: EnvironmentSpriteAtlasCorrected_4
   - first:
-      213: -4266250707248822512
-    second: Platform3
+      213: -4223381963141461055
+    second: EnvironmentSpriteAtlasCorrected_5
   - first:
-      213: -2033761688646858496
-    second: Platform4
+      213: 672845025214174312
+    second: EnvironmentSpriteAtlasCorrected_6
   - first:
-      213: 5533510909823399370
-    second: BackgroundMountainsBlue
+      213: -3674148229890926592
+    second: EnvironmentSpriteAtlasCorrected_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -107,23 +107,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackgroundMountainsPurple
+      name: EnvironmentSpriteAtlasCorrected_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eab92b08ff7c9c70800000000000000
-      internalID: 8979192460385827557
+      spriteID: d4a2584850cacb6a0800000000000000
+      internalID: -6432077028093777331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackgroundMountainsOrange
+      name: EnvironmentSpriteAtlasCorrected_1
       rect:
         serializedVersion: 2
         x: 0
@@ -158,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4f616afe368cc720800000000000000
-      internalID: 2867814667774947146
+      spriteID: 446528e9380281770800000000000000
+      internalID: 8581644839626626628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForegroundDirt
+      name: EnvironmentSpriteAtlasCorrected_2
       rect:
         serializedVersion: 2
         x: 0
@@ -179,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98223f2bffcc89100800000000000000
-      internalID: 115067189088952969
+      spriteID: cdf0ac604f1025040800000000000000
+      internalID: 4634769114115215324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platform1
+      name: EnvironmentSpriteAtlasCorrected_3
       rect:
         serializedVersion: 2
         x: 2
@@ -200,14 +188,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8db1adeb7671b4fd0800000000000000
-      internalID: -2356764245647287336
+      spriteID: 7ddfb5ebc0b124610800000000000000
+      internalID: 1603874158844575191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platform2
+      name: EnvironmentSpriteAtlasCorrected_4
       rect:
         serializedVersion: 2
         x: 28
@@ -221,14 +209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4281b8bc57dff6f10800000000000000
-      internalID: 2265307819958540324
+      spriteID: 893588b359ed793a0800000000000000
+      internalID: -6658608791513705576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platform3
+      name: EnvironmentSpriteAtlasCorrected_5
       rect:
         serializedVersion: 2
         x: 54
@@ -242,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 017cca7d59b3bc4c0800000000000000
-      internalID: -4266250707248822512
+      spriteID: 1cb49202b788365c0800000000000000
+      internalID: -4223381963141461055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platform4
+      name: EnvironmentSpriteAtlasCorrected_6
       rect:
         serializedVersion: 2
         x: 77
@@ -263,29 +251,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 009c76ef480a6c3e0800000000000000
-      internalID: -2033761688646858496
+      spriteID: 86497cc4cfc665900800000000000000
+      internalID: 672845025214174312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackgroundMountainsBlue
+      name: EnvironmentSpriteAtlasCorrected_7
       rect:
         serializedVersion: 2
         x: 0
-        y: 238
+        y: 237
         width: 512
-        height: 90
+        height: 91
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac5b5cccadafacc40800000000000000
-      internalID: 5533510909823399370
+      spriteID: 0089831c6adc20dc0800000000000000
+      internalID: -3674148229890926592
       vertices: []
       indices: 
       edges: []
@@ -302,7 +290,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

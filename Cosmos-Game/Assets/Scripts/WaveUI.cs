@@ -39,7 +39,6 @@ public class WaveUI : MonoBehaviour
             Debug.LogError("no waveCountText referenced");
             this.enabled = false;
         }
-
     }
 
     void Update()
