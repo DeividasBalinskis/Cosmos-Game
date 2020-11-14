@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityStandardAssets._2D;
 
 [RequireComponent(typeof(Platformer2DUserControl))]
+//[RequireComponent(typeof(SpriteRenderer))]
 public class Player : MonoBehaviour
 {
     public int fallBoundry = -20;
@@ -65,11 +66,27 @@ public class Player : MonoBehaviour
     {
         //handle what happens, when upgrade menu is toggled
         GetComponent<Platformer2DUserControl>().enabled = !active;
+        //GetComponent<SpriteRenderer>().enabled = !active;
+        ArmRotation _armR = GetComponentInChildren<ArmRotation>();
+        if(_armR !=null)
+        {
+            _armR.enabled = !active;
+        }
         Weapon _weapon = GetComponentInChildren<Weapon>();
-        if(_weapon != null)
+        if (_weapon != null)
         {
             _weapon.enabled = !active;
         }
+
+        if(active)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+        
     }
 
     void OnDestroy()
