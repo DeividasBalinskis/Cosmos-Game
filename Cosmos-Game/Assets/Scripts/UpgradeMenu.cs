@@ -33,7 +33,7 @@ public class UpgradeMenu : MonoBehaviour
     void UpdateValues()
     {
         healthText.text = "Health: " + stats.maxHealth.ToString();
-        damageText.text = "Damage: " + weapon.Damage.ToString();
+        damageText.text = "Damage: " + stats.Damage.ToString();
     }
 
     public void UpgradeHealth()
@@ -65,7 +65,7 @@ public class UpgradeMenu : MonoBehaviour
         {
             GameMaster.Money -= upgradeCost;
             AudioManager.instance.PlaySound("Money");
-            weapon.Damage = (int)(weapon.Damage * damageMultiplier); 
+            stats.Damage = (int)(stats.Damage * damageMultiplier); 
         }
 
 

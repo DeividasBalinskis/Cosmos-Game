@@ -140,14 +140,6 @@ MonoBehaviour:
     enemy: {fileID: 1730645318181091808, guid: 1e31fe8cc2048f941a5039e2175cf9dd, type: 3}
     count: 10
     rate: 3
-  - wave: Alien Invasion 2.0
-    enemy: {fileID: 1730645318181091808, guid: 1e31fe8cc2048f941a5039e2175cf9dd, type: 3}
-    count: 15
-    rate: 3
-  - wave: Alien Invasion 3.0
-    enemy: {fileID: 1730645318181091808, guid: 1e31fe8cc2048f941a5039e2175cf9dd, type: 3}
-    count: 25
-    rate: 3
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -166,5 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthRegenRate: 2
+  fireRate: 5
+  Damage: 10
+  healthRegenRate: 5
   movementSpeed: 10

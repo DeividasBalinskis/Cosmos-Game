@@ -5,6 +5,7 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance;
 
     public int maxHealth = 100;
+    public int Damage = 10;
 
     private int _curHealth;
     public int curHealth

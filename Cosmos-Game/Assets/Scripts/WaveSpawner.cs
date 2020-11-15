@@ -19,6 +19,9 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public Wave[] waves;
+    [NonSerialized]
+    public int wavesCounter = 1;
+    private int completedWaves = 2;
     private int nextWave = 0;
     public int NextWave
     {
@@ -27,6 +30,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform[] spawnPoints;
 
+    public int nextWaveMoreEnemy = 0;
     public float timeBetweenWaves = 3f;
     private float waveCountDown;
     public float WaveCountdown
@@ -81,19 +85,26 @@ public class WaveSpawner : MonoBehaviour
 
     void WaveCompleted()
     {
-        Debug.Log("Wave Completed!");
-
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
 
-        if(nextWave + 1 > waves.Length - 1)
+        if (wavesCounter == completedWaves)
         {
-            nextWave = 0;
-            Debug.Log("Completed all waves!. looping");
+            if (nextWave + 1 > waves.Length - 1)
+            {
+                nextWave = 0;
+                wavesCounter = 1;
+                //Debug.Log("Completed all waves!. looping");
+            }
+            else
+            {
+                nextWave++;
+                wavesCounter = 1;
+            }
         }
         else
         {
-            nextWave++;
+            wavesCounter++;
         }
     }
 
@@ -117,7 +128,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
-        Debug.Log("spaning wave");
+        //Debug.Log("spaning wave");
         state = SpawnState.SPAWNING;
 
         for (int i = 0; i < _wave.count; i++)
@@ -126,7 +137,7 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f / _wave.rate);
         }
 
-        _wave.count += 10;
+        _wave.count += nextWaveMoreEnemy;
 
         state = SpawnState.WAITING;
 

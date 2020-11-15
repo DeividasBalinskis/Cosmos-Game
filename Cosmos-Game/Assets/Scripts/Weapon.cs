@@ -6,15 +6,15 @@ public class Weapon : MonoBehaviour
 {
     public static Weapon Instance;
 
-    public float fireRate = 0;
-    public int Damage = 10;
     public LayerMask WhatToHit;
 
     public Transform BulletTrailPrefab;
     public Transform MuzzleFlashPrefab;
     public Transform hitPrefab;
-    float timeToSpawnEffect = 0;
-    public float effectSpawnRate = 10;
+
+    float timeToSpawnEffect = 0f;
+    public float effectSpawnRate = 10f;
+    public float fireRate = 0;
 
     //handle camera shaking
     public float camShakeAmt = 0.1f;
@@ -87,7 +87,7 @@ public class Weapon : MonoBehaviour
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if(enemy != null)
             {
-                enemy.DamageEnemy(Damage);
+                enemy.DamageEnemy(PlayerStats.Instance.Damage);
             }
         }
 
