@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1730645318181091809}
   - component: {fileID: 1730645318181091810}
   m_Layer: 11
-  m_Name: AlienSpaceship 1
+  m_Name: 2AlineSpaceship
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 1730645318181091835}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.13, y: 4.31, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_Children:
   - {fileID: 1730645318597030444}
   m_Father: {fileID: 0}
@@ -154,8 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 1779696485
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8886561572535021830, guid: 558ff26560638414f9ca1d8acde75df2,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: eba17281732856444bd5dc1b2b36abbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -262,12 +261,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    maxHealth: 100
+    maxHealth: 200
     damage: 40
   deathParticles: {fileID: 1176704220768483989, guid: e4d0c94d5953c954faed701030277db9,
     type: 3}
   shakeAmt: 0.1
   shakeLenght: 0.1
+  deathSoundName: Explosion
+  moneyDrop: 10
   statusIndicator: {fileID: 1730645318597030440}
 --- !u!1 &1730645318226301056
 GameObject:
