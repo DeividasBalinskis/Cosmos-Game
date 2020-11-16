@@ -10,6 +10,12 @@ public class GameOverUI : MonoBehaviour
     [SerializeField]
     string buttonPressSound = "ButtonPress";
 
+    public delegate void UpgradeMenuCallback(bool active);
+    public UpgradeMenuCallback onToggleUpgrdeMenu;
+
+    [SerializeField]
+    private GameObject upgradeMenu;
+
     AudioManager audioManager;
 
     void Start()
@@ -21,11 +27,18 @@ public class GameOverUI : MonoBehaviour
         }
     }
 
-    public void  Quit()
+    public void  Shop()
     {
         audioManager.PlaySound(buttonPressSound);
 
-        Debug.Log("Application Quit");
+        upgradeMenu.SetActive(!upgradeMenu.activeSelf);
+        //waveSpawner.enabled = !upgradeMenu.activeSelf;
+        onToggleUpgrdeMenu.Invoke(upgradeMenu.activeSelf);
+    }
+
+    public void Quit()
+    {
+        Debug.Log("Quited the Game");
         Application.Quit();
     }
 

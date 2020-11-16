@@ -372,8 +372,8 @@ MonoBehaviour:
     type: 3}
   hitPrefab: {fileID: 8218343413278058138, guid: aeb845161fa647b4e887f4422b171f8a,
     type: 3}
-  effectSpawnRate: 5
-  fireRate: 5
+  effectSpawnRate: 3
+  fireRate: 3
   camShakeAmt: 0.1
   camShakeLength: 0.05
   weaponShootSound: DefaultShot
